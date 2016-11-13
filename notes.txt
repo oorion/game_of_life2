@@ -1,0 +1,5 @@
+create a cell that can compute how it should change
+a board is just a set of cells
+a board can show itself
+a board iterates through each cell and passes the value of the cell's neighbors
+a board updates each cell all at once
