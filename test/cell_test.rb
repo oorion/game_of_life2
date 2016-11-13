@@ -57,6 +57,34 @@ class CellTest < MiniTest::Unit::TestCase
     assert_equal 0, cell.state
   end
 
+
+  def test_cell_dies_if_has_six_neighbors
+    cell = Cell.new(state: 1)
+    neighbors = create_neighbors(number_of_cells_on: 6)
+
+    cell.step(neighbors: neighbors)
+
+    assert_equal 0, cell.state
+  end
+
+  def test_cell_dies_if_has_seven_neighbors
+    cell = Cell.new(state: 1)
+    neighbors = create_neighbors(number_of_cells_on: 7)
+
+    cell.step(neighbors: neighbors)
+
+    assert_equal 0, cell.state
+  end
+
+  def test_cell_dies_if_has_eight_neighbors
+    cell = Cell.new(state: 1)
+    neighbors = create_neighbors(number_of_cells_on: 8)
+
+    cell.step(neighbors: neighbors)
+
+    assert_equal 0, cell.state
+  end
+
   def create_neighbors(number_of_cells_on:)
     on = Array.new(number_of_cells_on, 1)
     off = Array.new(8 - number_of_cells_on, 0)
