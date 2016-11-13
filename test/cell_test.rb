@@ -85,6 +85,15 @@ class CellTest < MiniTest::Unit::TestCase
     assert_equal 0, cell.state
   end
 
+  def test_a_dead_cell_with_three_live_neighbors_becomes_alive
+    cell = Cell.new(state: 0)
+    neighbors = create_neighbors(number_of_cells_on: 3)
+
+    cell.step(neighbors: neighbors)
+
+    assert_equal 1, cell.state
+  end
+
   def create_neighbors(number_of_cells_on:)
     on = Array.new(number_of_cells_on, 1)
     off = Array.new(8 - number_of_cells_on, 0)
